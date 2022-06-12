@@ -4,5 +4,5 @@ from .models import Student
 
 @admin.register(Student)
 
-class studenyAdmin(admin.ModelAdmin):
+class studentAdmin(admin.ModelAdmin):
     list_display = ['id','name','roll','address','email']
