@@ -1,9 +1,7 @@
-from functools import partial
-from pickle import TRUE
 from django.shortcuts import render
 from .models import Student
 from .serializers import StudentSerializer
-from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,UpdateAPIView,DestroyAPIView
+from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,UpdateAPIView,DestroyAPIView,ListCreateAPIView,RetrieveUpdateDestroyAPIView
 
 
 class student_list(ListAPIView):
@@ -26,6 +24,14 @@ class student_destroy(DestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
+# get and post method at the same time 
 
+class student_lscview(ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class student_rudview(RetrieveUpdateDestroyAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
 
